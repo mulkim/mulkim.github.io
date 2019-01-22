@@ -14,12 +14,85 @@
         <div class="header">
             <h1>Mulki Mohamed's Assignment 2!</h1>
             <p>
-            <img src="red-panda.jpg" width=400></a>
+            <p>What my circuit looks like:</p> 
+            <p>   
+            <img src="circuit2.jpg" width=400
+            alt= "What my circuit looks like:"></a>
             </p>
+
+            <p>The schematic drawing of my circuit:</p> 
+            <p>   
+            <img src="schematic2.jpg" width=400
+            alt= "The schematic drawing of my circuit:"></a>
+            </p>
+            
+            <p>Arduino Code:</p>
+            <code>
+            // Assignment 2: Lights! That Fade<br>
+			// Created by Mulki Mohamed<br>
+			<br>
+			// pin number connected to the button<br>
+			const int buttonPin = 2;<br>
+			// pin number connected to the white LED<br>
+			const int whiteLEDPin = 9;<br>
+			// pin number connected to the blue LED<br>
+			const int blueLEDPin = 10;<br>
+			<br>
+			// represents the state in which the button is in (off or on)<br>
+			int buttonState = 0;<br>
+			<br>
+			void setup() { <br>
+  				// initialize the white LED pin as an output<br>
+ 				 pinMode(whiteLEDPin, OUTPUT);<br>
+  				// initialize the blue LED pin as an output<br>
+  				pinMode(blueLEDPin, OUTPUT);<br>
+  				// initialize the pushbutton pin as an input<br>
+  				pinMode(buttonPin, INPUT);<br>
+			}<br>
+			<br>
+			void loop() {<br>
+  				// reads the state of the pushbutton (off or on)<br>
+  				buttonState = digitalRead(buttonPin);<br>
+  				<br>
+  				// checks to see if the button has been pressed, represented by a "HIGH"<br>
+  				if (buttonState == HIGH) {<br>
+    				// turn white LED on<br>
+    				digitalWrite(whiteLEDPin, HIGH);<br>
+    				// turn blue LED on<br>
+    				digitalWrite(blueLEDPin, HIGH);<br>
+    		<br>
+    			// fade LED pins in<br>
+    		    for (int colorFadeValue = 0; colorFadeValue <= 250; colorFadeValue +=10) {<br>
+      				// fade white LED from 0 to 250 by increasing by 10<br>
+      				analogWrite(whiteLEDPin,colorFadeValue);<br>
+      				// fade blue LED from 0 to 250 by increasing by 10<br>
+      				analogWrite(blueLEDPin,colorFadeValue);<br>
+      				//delay time by 30 ms<br>
+      				delay(30);<br>
+    				}<br>
+    			// fade LED pins out<br>
+    			for (int colorFadeValue = 250; colorFadeValue >= 0; colorFadeValue -=10) {<br>
+      				// fade white LED from 250 to 0 by decreasing by 10<br>
+     				 analogWrite(whiteLEDPin,colorFadeValue);<br>
+      				// fade blue LED from 250 to 0 by decreasing by 10<br>
+     				 analogWrite(blueLEDPin,colorFadeValue);<br>
+      				// delay time by 30 ms<br>
+      				delay(30);<br>
+    			}<br>
+  		} else {<br>
+   			// turn white LED off<br>
+    		digitalWrite(whiteLEDPin, LOW);<br>
+    		// turn blue LED off<br>
+    		digitalWrite(blueLEDPin, LOW);<br>
+  		}<br>
+	}<br>
+	<br> </code>>
+
             <p>
-            Here is all the documentation for assignment 2!
+            <p>An animted gif of my circuit:</p>    
+            <img src="circuit2.gif" width=400
+            alt="An animted gif of my circuit:"></a>
             </p>
-        </div>
-        
+        </div> 
     </body>
 </html>
